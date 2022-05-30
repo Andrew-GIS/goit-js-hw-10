@@ -11,20 +11,17 @@ const DEBOUNCE_DELAY = 300;
 inpute.addEventListener('input',  debounce(showCountres, DEBOUNCE_DELAY));
 
 function showCountres(event) {
-	inputeValue = event.target.value;
-	inputeValue.trim();
+	inputeValue = event.target.value.trim();
 	countryList.innerHTML = '';
 	console.log('inputeValue :>> ', inputeValue);
 	if (inputeValue === '') {
 		console.log('return :>> empty ');
 		return;
 	}
-	else {
-		fetchCountries(inputeValue)
+	fetchCountries(inputeValue)
 			.then(result => { renderCountries(result) })
 			.catch(error => {
 				console.log('error :>> ', error);
 				error;
-		})
-	}
+	})
 }

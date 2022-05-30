@@ -16,7 +16,7 @@ function fetchCountries(name) {
 	return fetch(`${mainLink}${name}`)
 		.then(responce => {
 			if (!responce.ok) {
-				throw new Error();
+				throw new Error(responce.status);
 			}
 			return responce.json();
 		})
